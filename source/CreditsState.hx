@@ -81,8 +81,11 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-		        ['Android Port'],
-		        ['Saw (M.A. Jigsaw)','saw','Main Coder','https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 'F73838'],
+		        ['Play Engine Team'],
+                        ['MaysLastPlay','MaysLastPlay','Main Coder','https://youtube.com/channel/UCx0LxtFR8ROd9sFAq-UxDfw', 'F73838'],
+		        ['Saw (M.A. Jigsaw)','saw','Second Coder, VideoWiev Extension Creator','https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 'F73838'],
+			['VegethYT', 'vegethyt', 'Third Coder', 'https://www.youtube.com/channel/UCxkiBjTcKVb7ffsIUg-PILQ', '000099'],
+		        ['Pambi', 'pambi', 'Fourth coder', 'https://youtube.com/channel/UCT-O8O_mwkRE0TNlkh6l8Kg', '000099'],
 		        [''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
