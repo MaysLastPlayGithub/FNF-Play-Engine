@@ -579,16 +579,16 @@ class TitleState extends MusicBeatState
 			{
 				case 1:
 					#if PSYCH_WATERMARKS
-					createCoolText(['Psych Engine by'], 15);
+					createCoolText(['Play Engine by'], 15);
 					#else
 					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 					#end
 				// credTextShit.visible = true;
 				case 3:
 					#if PSYCH_WATERMARKS
-					addMoreText('Shadow Mario', 15);
-					addMoreText('RiverOaken', 15);
-					addMoreText('shubs', 15);
+					addMoreText('MaysLastPlay', 15);
+					addMoreText('Saw (M.A. Jigsaw)', 15);
+					addMoreText('VegethYT', 15);
 					#else
 					addMoreText('present');
 					#end
