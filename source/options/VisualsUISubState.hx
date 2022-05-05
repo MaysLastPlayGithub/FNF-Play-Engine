@@ -67,7 +67,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			"If checked, Add Watermark Like Kade (uncheck this if you play on a custom lua ui for a better experience)",
 			'kadeEngineWatermark',
 			'bool',
-			false);
+			true);
 		addOption(option);
 
 		var option:Option = new Option('Camera Zooms',
