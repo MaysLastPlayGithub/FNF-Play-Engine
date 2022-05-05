@@ -1,136 +1,95 @@
-# Friday Night Funkin' - Psych Engine Android Support
-Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
+# friday night funkin' - play engine
+engine will be used on vs mayslastplay mod
+engine made as a custom build of psych engine with some modification to it. as psych engine, this engine has mods support with lua too.
 
-## Installation:
-You must have [the most up-to-date version of Haxe](https://haxe.org/download/), seriously, stop using 4.1.5, it misses some stuff.
+# compiling infos:
+you must have [newer version of haxe](https://haxe.org/download/) because 4.1.5 misses lots of stuff
 
-Follow a Friday Night Funkin' source code compilation tutorial, after this you will need to install LuaJIT.
+follow a friday night funkin' source code compilation tutorial, after this you will need to install luajit.
 
-To install LuaJIT do this: `haxelib git linc_luajit https://github.com/AndreiRudenko/linc_luajit ` on a Command prompt/PowerShell
+the engine has an android support. for making mp4 cutscene works in android you have to install this extension: `haxelib git https://github.com/jigsaw-4277821/extension-videoview ` on a command prompt/powershell
 
-...Or if you don't want your mod to be able to run .lua scripts, delete the "LUA_ALLOWED" line on Project.xml
+to install luajit you have to use this because of the android support stuff: `haxelib git linc_luajit https://github.com/jigsaw-4277821/linc_luajit-nebulazorua ` on a command prompt/powershell
 
-# Build instructions For Android
+if you don't want your mod to run lua, remove in project.xml the "lua_allowed" line
 
-1. Download
-* <a href = "https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html"> JDK </a>
-* <a href = "https://developer.android.com/studio"> Android Studio </a>
-* <a href = "https://developer.android.com/ndk/downloads/older_releases?hl=fi"> NDK </a> - download the r15c
+also you need this for compiling: `https://github.com/jigsaw-4277821/androidtools ` on a command prompt/powershell 
 
-2. Install JDK, Android Studio 
-Unzip ndk (ndk does not need to be installed)
+## credits:
+* psych engine team - base engine
+* mayslastplay - play engine coder and lead developer
 
-3. We need to set up Android Studio for this go to android studio and find android sdk (in settings -> Appearance & Behavior -> system settings -> android sdk)
-![andr](https://user-images.githubusercontent.com/59097731/104179652-44346000-541d-11eb-8ad1-1e4dfae304a8.PNG)
-![andr2](https://user-images.githubusercontent.com/59097731/104179943-a9885100-541d-11eb-8f69-7fb5a4bfdd37.PNG)
+### special thanks
+* psych engine contributors - contributing on the base engine
+* vegethyt - additional coding and vs mayslastplay dev
+* m.a jigsaw - android support and libraries
+* angël - android controls style maker
 
-4. And run command `lime setup android` in power shell / cmd
-You need to insert the program paths
+# features
 
-As in this picture (use jdk, not jre)
-![lime](https://user-images.githubusercontent.com/59097731/104179268-9e80f100-541c-11eb-948d-a00d85317b1a.PNG)
-
-5. You Need to install extension-androidtools, extension-videoview and to replace the linc_luajit
-
-To Install Them You Need To Open Command prompt/PowerShell And To Tipe
-```cmd
-haxelib git extension-androidtools https://github.com/jigsaw-4277821/extension-androidtools.git
-
-haxelib git extension-videoview https://github.com/jigsaw-4277821/extension-videoview.git
-
-haxelib remove linc_luajit
-
-haxelib git linc_luajit https://github.com/jigsaw-4277821/linc_luajit.git
-
-```
-
-6. Open project in command line `cd (path to fnf source)`
-And run command `lime build android -final`
-Apk will be generated in this path (path to source)\export\release\android\bin\app\build\outputs\apk\debug
-
-## Credits:
-* Shadow Mario - Coding
-* RiverOaken - Arts and Animations
-* bbpanzu - Assistant Coding
-
-### Special Thanks
-* shubs - New Input System
-* SqirraRNG - Chart Editor's Sound Waveform base code
-* iFlicky - Delay/Combo Menu Song Composer + Dialogue Sounds
-* PolybiusProxy - .MP4 Loader Extension
-* Keoiki - Note Splash Animations
-* Smokey - Spritemap Texture Atlas support
-* Cary - OG Resolution code
-* Nebula_Zorua - VCR Shader code
-
-### Android Port
-* Saw (M.A. Jigsaw) - all the stuff for the android port
-_____________________________________
-
-# Features
-
-## Attractive animated dialogue boxes:
+## attractive animated dialogue boxes:
 
 ![](https://user-images.githubusercontent.com/44785097/127706669-71cd5cdb-5c2a-4ecc-871b-98a276ae8070.gif)
 
 
-## Mod Support
-* Probably one of the main points of this engine, you can code in .lua files outside of the source code, making your own weeks without even messing with the source!
-* Comes with a Mod Organizing/Disabling Menu. 
+## mod support
+* probably one of the main points of this engine, you can code in .lua files outside of the source code, making your own weeks without even messing with the source!
+* comes with a mod organizing/disabling menu. 
 
-## Atleast one change to every week:
-### Week 1:
-  * New Dad Left sing sprite 
-  * Unused stage lights are now used
-### Week 2:
-  * Both BF and Skid & Pump does "Hey!" animations
-  * Thunders does a quick light flash and zooms the camera in slightly
-  * Added a quick transition/cutscene to Monster
-### Week 3:
-  * BF does "Hey!" during Philly Nice
-  * Blammed has a cool new colors flash during that sick part of the song
-### Week 4:
-  * Better hair physics for Mom/Boyfriend (Maybe even slightly better than Week 7's :eyes:)
-  * Henchmen die during all songs. Yeah :(
-### Week 5:
-  * Bottom Boppers and GF does "Hey!" animations during Cocoa and Eggnog
-  * On Winter Horrorland, GF bops her head slower in some parts of the song.
-### Week 6:
-  * On Thorns, the HUD is hidden during the cutscene
-  * Also there's the Background girls being spooky during the "Hey!" parts of the Instrumental
 
-## Cool new Chart Editor changes and countless bug fixes
-![](https://github.com/ShadowMario/FNF-PsychEngine/blob/main/docs/img/chart.png?raw=true)
-* You can now chart "Event" notes, which are bookmarks that trigger specific actions that usually were hardcoded on the vanilla version of the game.
-* Your song's BPM can now have decimal values
-* You can manually adjust a Note's strum time if you're really going for milisecond precision
-* You can change a note's type on the Editor, it comes with two example types:
-  * Alt Animation: Forces an alt animation to play, useful for songs like Ugh/Stress
-  * Hey: Forces a "Hey" animation instead of the base Sing animation, if Boyfriend hits this note, Girlfriend will do a "Hey!" too.
+## atleast one change to every week:
+### week 1:
+  * new dad left sing sprite 
+  * unused stage lights are now used
+### week 2:
+  * both bf and skid & pump does "hey!" animations
+  * thunders does a quick light flash and zooms the camera in slightly
+  * added a quick transition/cutscene to monster
+### week 3:
+  * bf does "hey!" during philly nice
+  * blammed has a cool new colors flash during that sick part of the song
+### week 4:
+  * better hair physics for mom/boyfriend (maybe even slightly better than week 7's :eyes:)
+  * henchmen die during all songs. yeah :(
+### week 5:
+  * bottom boppers and gf does "hey!" animations during cocoa and eggnog
+  * on winter horrorland, gf bops her head slower in some parts of the song.
+### week 6:
+  * on thorns, the hud is hidden during the cutscene
+  * also there's the background girls being spooky during the "hey!" parts of the instrumental
 
-## Multiple editors to assist you in making your own Mod
-![Screenshot_3](https://user-images.githubusercontent.com/44785097/144629914-1fe55999-2f18-4cc1-bc70-afe616d74ae5.png)
-* Working both for Source code modding and Downloaded builds!
+## cool new chart editor changes and countless bug fixes
+![](https://github.com/shadowmario/fnf-psychengine/blob/main/docs/img/chart.png?raw=true)
+* you can now chart "event" notes, which are bookmarks that trigger specific actions that usually were hardcoded on the vanilla version of the game.
+* your song's bpm can now have decimal values
+* you can manually adjust a note's strum time if you're really going for milisecond precision
+* you can change a note's type on the editor, it comes with two example types:
+  * alt animation: forces an alt animation to play, useful for songs like ugh/stress
+  * hey: forces a "hey" animation instead of the base sing animation, if boyfriend hits this note, girlfriend will do a "hey!" too.
 
-## Story mode menu rework:
-![](https://i.imgur.com/UB2EKpV.png)
-* Added a different BG to every song (less Tutorial)
-* All menu characters are now in individual spritesheets, makes modding it easier.
+## multiple editors to assist you in making your own mod
+![screenshot_3](https://user-images.githubusercontent.com/44785097/144629914-1fe55999-2f18-4cc1-bc70-afe616d74ae5.png)
+* working both for source code modding and downloaded builds!
 
-## Credits menu
-![Screenshot_1](https://user-images.githubusercontent.com/44785097/144632635-f263fb22-b879-4d6b-96d6-865e9562b907.png)
-* You can add a head icon, name, description and a Redirect link for when the player presses Enter while the item is currently selected.
+## story mode menu rework:
+![](https://i.imgur.com/ub2ekpv.png)
+* added a different bg to every song (less tutorial)
+* all menu characters are now in individual spritesheets, makes modding it easier.
 
-## Awards/Achievements
-* The engine comes with 16 example achievements that you can mess with and learn how it works (Check Achievements.hx and search for "checkForAchievement" on PlayState.hx)
+## credits menu
+![screenshot_1](https://user-images.githubusercontent.com/44785097/144632635-f263fb22-b879-4d6b-96d6-865e9562b907.png)
+* you can add a head icon, name, description and a redirect link for when the player presses enter while the item is currently selected.
 
-## Options menu:
-* You can change Note colors, Delay and Combo Offset, Controls and Preferences there.
- * On Preferences you can toggle Downscroll, Middlescroll, Anti-Aliasing, Framerate, Low Quality, Note Splashes, Flashing Lights, etc.
+## awards/achievements
+* the engine comes with 16 example achievements that you can mess with and learn how it works (check achievements.hx and search for "checkforachievement" on playstate.hx)
 
-## Other gameplay features:
-* When the enemy hits a note, their strum note also glows.
-* Lag doesn't impact the camera movement and player icon scaling anymore.
-* Some stuff based on Week 7's changes has been put in (Background colors on Freeplay, Note splashes)
-* You can reset your Score on Freeplay/Story Mode by pressing Reset button.
-* You can listen to a song or adjust Scroll Speed/Damage taken/etc. on Freeplay by pressing Space.
+## options menu:
+* you can change note colors, delay and combo offset, controls and preferences there.
+ * on preferences you can toggle downscroll, middlescroll, anti-aliasing, framerate, low quality, note splashes, flashing lights, etc.
+
+## other gameplay features:
+* when the enemy hits a note, their strum note also glows.
+* lag doesn't impact the camera movement and player icon scaling anymore.
+* some stuff based on week 7's changes has been put in (background colors on freeplay, note splashes)
+* you can reset your score on freeplay/story mode by pressing reset button.
+* you can listen to a song or adjust scroll speed/damage taken/etc. on freeplay by pressing space.
