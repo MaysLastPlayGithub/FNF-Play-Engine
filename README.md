@@ -1,5 +1,5 @@
 # Friday Night Funkin' - Play Engine
-engine will be used on vs mayslastplay mod
+Engine Will be used on Vs MaysLastPlay mod
 engine made as a custom build of psych engine with some modification to it. as psych engine, this engine has mods support with lua too.
 
 # Compiling infos:
