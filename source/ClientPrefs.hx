@@ -12,6 +12,7 @@ class ClientPrefs {
 	public static var showFPS:Bool = #if android false #else true #end;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
+  public static var kadeEngineWatermark:Bool = true;
 	public static var noteSplashes:Bool = true;
 	public static var lowQuality:Bool = false;
 	public static var framerate:Int = 60;
@@ -19,10 +20,9 @@ class ClientPrefs {
 	public static var violence:Bool = true;
 	public static var camZooms:Bool = true;
 	public static var hideHud:Bool = false;
-        public static var kadeEngineWatermark:Bool = true;
 	public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
-	public static var vibration:Bool = false;
+	public static var imagesPersist:Bool = false;
 	public static var ghostTapping:Bool = true;
 	public static var timeBarType:String = 'Time Left';
 	public static var scoreZoom:Bool = true;
@@ -96,6 +96,7 @@ class ClientPrefs {
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.showFPS = showFPS;
 		FlxG.save.data.flashing = flashing;
+		FlxG.save.data.kadeEngineWatermark = kadeEngineWatermark;
 		FlxG.save.data.globalAntialiasing = globalAntialiasing;
 		FlxG.save.data.noteSplashes = noteSplashes;
 		FlxG.save.data.lowQuality = lowQuality;
@@ -106,7 +107,7 @@ class ClientPrefs {
 		FlxG.save.data.noteOffset = noteOffset;
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
-		FlxG.save.data.vibration = vibration;
+		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.scoreZoom = scoreZoom;
@@ -160,6 +161,9 @@ class ClientPrefs {
 		if(FlxG.save.data.lowQuality != null) {
 			lowQuality = FlxG.save.data.lowQuality;
 		}
+		if(FlxG.save.data.kadeEngineWatermark != null) {
+			kadeEngineWatermark = FlxG.save.data.kadeEngineWatermark;
+		}
 		if(FlxG.save.data.framerate != null) {
 			framerate = FlxG.save.data.framerate;
 			if(framerate > FlxG.drawFramerate) {
@@ -187,9 +191,6 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.arrowHSV != null) {
 			arrowHSV = FlxG.save.data.arrowHSV;
-		}
-		if(FlxG.save.data.vibration != null) {
-			vibration = FlxG.save.data.vibration;
 		}
 		if(FlxG.save.data.ghostTapping != null) {
 			ghostTapping = FlxG.save.data.ghostTapping;
