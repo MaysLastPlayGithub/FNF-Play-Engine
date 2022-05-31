@@ -28,13 +28,14 @@ class MusicBeatSubstate extends FlxSubState
 		return PlayerSettings.player1.controls;
 
 	#if android
-	public var _virtualpad:FlxVirtualPad;
+	var _virtualpad:FlxVirtualPad;
 	var trackedinputsUI:Array<FlxActionInput> = [];
+	var trackedinputsNOTES:Array<FlxActionInput> = [];
 	#end
 	
 	#if android
-	public function addVirtualPad(DPad:FlxDPadMode, Action:FlxActionMode) {
-		_virtualpad = new FlxVirtualPad(DPad, Action);
+	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
+		_virtualpad = new FlxVirtualPad(DPad, Action, 0.75, ClientPrefs.globalAntialiasing);
 		add(_virtualpad);
 		controls.setVirtualPadUI(_virtualpad, DPad, Action);
 		trackedinputsUI = controls.trackedinputsUI;
@@ -61,6 +62,7 @@ class MusicBeatSubstate extends FlxSubState
 	override function destroy() {
 		#if android
 		controls.removeFlxInput(trackedinputsUI);
+		controls.removeFlxInput(trackedinputsNOTES);	
 		#end	
 		
 		super.destroy();
