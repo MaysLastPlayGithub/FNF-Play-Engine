@@ -2328,7 +2328,11 @@ class PlayState extends MusicBeatState
 		} else {
 			scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' | ' + '[' + ratingFC + '] ';
 		}
-
+            if ratingFC = "SCDB"
+            else if ratingFC = "Clear"
+        {
+            scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%';
+        }
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
