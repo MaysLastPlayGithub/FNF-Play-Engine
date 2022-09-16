@@ -92,7 +92,7 @@ class FPS extends TextField
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 			text += "\nMemory: " + memoryMegas + " MB";
-		  text += "\nMemory Peak: " + getSizeLabel(peak) + " MB";
+		  text += "\nMemory Peak: " + memoryMegas + " MB";
 			#end
 
 			textColor = 0xFFFFFFFF;
