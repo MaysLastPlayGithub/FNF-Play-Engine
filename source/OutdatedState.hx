@@ -45,7 +45,7 @@ class OutdatedState extends MusicBeatState
 		if(!leftState) {
 			if (controls.ACCEPT) {
 				leftState = true;
-				CoolUtil.browserLoad("https://github.com/MaysLastPlay0/Fnf-Play-Engine-Rebuild/actions");
+				CoolUtil.browserLoad("https://github.com/MaysLastPlay0/FNF-Play-Engine/actions");
 			}
 			else if(controls.BACK) {
 				leftState = true;
