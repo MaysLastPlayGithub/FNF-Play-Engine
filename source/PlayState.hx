@@ -3402,7 +3402,7 @@ class PlayState extends MusicBeatState
 
 		if (songMisses <= 0)
 		{
-	  (songMisses >= 10 && songMisses > 0 && songMisses <10) songText.text = new 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%';
+	  (songMisses >= 10 && songMisses > 0 && songMisses <10) songText.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%';
 		}
 		if(!practiceMode && !cpuControlled) {
 			songScore += score;
