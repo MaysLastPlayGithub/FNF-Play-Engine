@@ -2327,8 +2327,6 @@ class PlayState extends MusicBeatState
 			scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Accuracy: ' + ratingName;
 		} else {
 			scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' | ' + '[' + ratingFC + ']';
-          if (songMisses <= 0) {
-		 songText.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%';}
 		}
 
 		if(botplayTxt.visible) {
@@ -3398,11 +3396,6 @@ class PlayState extends MusicBeatState
 		if(daRating == 'sick' && !note.noteSplashDisabled)
 		{
 			spawnNoteSplashOnNote(note);
-		}
-
-		if (songMisses <= 0)
-		{
-	  (songMisses >= 10 && songMisses > 0 && songMisses <10) songText.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%';
 		}
 
 		if(!practiceMode && !cpuControlled) {
