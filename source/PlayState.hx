@@ -2327,8 +2327,8 @@ class PlayState extends MusicBeatState
 			scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Accuracy: ' + ratingName;
 		} else {
 			scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' | ' + '[' + ratingFC + ']';
-          if (songMisses <= 0)
-		 songText.text = new 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%';
+          if (songMisses <= 0) {
+		 songText.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%'; }
 		}
 
 		if(botplayTxt.visible) {
