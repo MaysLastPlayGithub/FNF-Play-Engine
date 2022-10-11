@@ -17,7 +17,7 @@ import flixel.FlxState;
 import flixel.FlxSubState;
 import openfl.filters.ShaderFilter;
 import Shaders;
-import openfl.display.Shader
+import openfl.display.Shader;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.effects.FlxTrail;
 import flixel.addons.effects.FlxTrailArea;
