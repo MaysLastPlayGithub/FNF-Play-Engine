@@ -193,9 +193,9 @@ class PlayState extends MusicBeatState
 	
 	//shaders shit
 	public var shaderUpdates:Array<Float->Void> = [];
-	public var camGameShaders:Array<ShaderEffect> = [];
-	public var camHUDShaders:Array<ShaderEffect> = [];
-	public var camOtherShaders:Array<ShaderEffect> = [];
+	public var camGameShaders:Array<BitmapFilter> = [];
+	public var camHUDShaders:Array<BitmapFilter> = [];
+	public var camOtherShaders:Array<BitmapFilter> = [];
 
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
 	var dialogueJson:DialogueFile = null;
@@ -1691,7 +1691,7 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-public function addShaderToCamera(cam:String,effect:ShaderEffect){
+public function addShaderToCamera(cam:String,effect:ShaderFilter){
     
         switch(cam.toLowerCase()) {
             case 'camhud' | 'hud':
@@ -1729,7 +1729,7 @@ public function addShaderToCamera(cam:String,effect:ShaderEffect){
       
   }
   
-  public function removeShaderFromCamera(cam:String,effect:ShaderEffect){ 
+  public function removeShaderFromCamera(cam:String,effect:ShaderFilter){ 
       
         switch(cam.toLowerCase()) {
             case 'camhud' | 'hud': 
