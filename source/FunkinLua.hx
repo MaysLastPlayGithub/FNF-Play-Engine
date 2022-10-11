@@ -5,6 +5,7 @@ import llua.State;
 import llua.Convert;
 #end
 
+import openfl.filters.ShaderFilter;
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
 import flixel.addons.effects.FlxTrail;
