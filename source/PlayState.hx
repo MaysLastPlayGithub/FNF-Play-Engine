@@ -193,9 +193,9 @@ class PlayState extends MusicBeatState
 	
 	//shaders shit
 	public var shaderUpdates:Array<Float->Void> = [];
-	public var camGameShaders:Array<BitmapFilter> = [];
-	public var camHUDShaders:Array<BitmapFilter> = [];
-	public var camOtherShaders:Array<BitmapFilter> = [];
+	public var camGameShaders:Array<ShaderFilter> = [];
+	public var camHUDShaders:Array<ShaderFilter> = [];
+	public var camOtherShaders:Array<ShaderFilter> = [];
 
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
 	var dialogueJson:DialogueFile = null;
