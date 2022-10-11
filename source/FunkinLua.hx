@@ -5,7 +5,6 @@ import llua.State;
 import llua.Convert;
 #end
 
-import openfl.filters.ShaderFilter;
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
 import flixel.addons.effects.FlxTrail;
@@ -37,7 +36,6 @@ import sys.io.File;
 import Type.ValueType;
 import Controls;
 import DialogueBoxPsych;
-import Shaders;
 
 #if desktop
 import Discord;
@@ -232,11 +230,6 @@ class FunkinLua {
 			}
 			luaTrace("Script doesn't exist!");
 		});
-                Lua_helper.add_callback(lua, "addChromaticAbberationShader", function(camera:String, chromeOffset:Float = 0.005) {
-
-			PlayState.instance.addShaderToCamera(camera, new ShaderFilter(new ChromaticAberrationEffect(chromeOffset)));
-
-		});
 		Lua_helper.add_callback(lua, "removeLuaScript", function(luaFile:String, ?ignoreAlreadyRunning:Bool = false) { //would be dope asf. 
 			var cervix = luaFile + ".lua";
 			var doPush = false;
@@ -289,62 +282,6 @@ class FunkinLua {
 				PlayState.instance.vocals.pause();
 				PlayState.instance.vocals.volume = 0;
 			}
-		});
-
-    Lua_helper.add_callback(lua, "ChromaticAbberation", function(camera:String, chromeOffset:Float = 0.005) {
-            
-			PlayState.instance.addShaderToCamera(camera, new ShaderFilter(new ChromaticAberrationEffect(chromeOffset)));
-		
-		});
-
-		Lua_helper.add_callback(lua, "ScanlineShader", function(camera:String, lockAlpha:Bool=false) {
-			
-			PlayState.instance.addShaderToCamera(camera, new ShaderFilter(new ScanlineEffect(lockAlpha)));
-			
-		});
-
-		Lua_helper.add_callback(lua, "TiltshiftShader", function(camera:String, blurAmount:Float=1.0, center:Float=1.0) {
-			
-			PlayState.instance.addShaderToCamera(camera, new ShaderFilter(new TiltshiftEffect(blurAmount, center)));
-			
-		});
-
-		Lua_helper.add_callback(lua, "VCRShader", function(camera:String, glitchFactor:Float = 0.0, distortion:Bool=true, perspectiveOn:Bool=true, vignetteMoving:Bool=true) {
-			
-			PlayState.instance.addShaderToCamera(camera, new ShaderFilter(new VCRDistortionEffect(glitchFactor, distortion, perspectiveOn, vignetteMoving)));
-			
-		});
-		Lua_helper.add_callback(lua, "GlitchShader", function(camera:String, waveSpeed:Float = 0.1, waveFrq:Float = 0.1, waveAmp:Float = 0.1) {
-			
-			PlayState.instance.addShaderToCamera(camera, new ShaderFilter(new GlitchEffect(waveSpeed, waveFrq, waveAmp)));
-			
-		});
-		Lua_helper.add_callback(lua, "PulseShader", function(camera:String, waveSpeed:Float = 0.1, waveFrq:Float = 0.1, waveAmp:Float = 0.1) {
-			
-			PlayState.instance.addShaderToCamera(camera, new ShaderFilter(new PulseEffect(waveSpeed, waveFrq, waveAmp)));
-
-		});
-		Lua_helper.add_callback(lua, "DistortionShader", function(camera:String, waveSpeed:Float = 0.1, waveFrq:Float = 0.1, waveAmp:Float = 0.1) {
-			
-			PlayState.instance.addShaderToCamera(camera, new ShaderFilter(new DistortBGEffect(waveSpeed, waveFrq, waveAmp)));
-	
-		});
-		Lua_helper.add_callback(lua, "InvertShader", function(camera:String, lockAlpha:Bool=false) {
-			
-			PlayState.instance.addShaderToCamera(camera, new ShaderFilter(new InvertColorsEffect(lockAlpha)));
-			
-		});  
-
-		Lua_helper.add_callback(lua, "GreyscaleShader", function(camera:String) {
-			
-			PlayState.instance.addShaderToCamera(camera, new ShaderFilter(new GreyscaleEffect()));
-			
-		});
-
-		Lua_helper.add_callback(lua, "BloomShader", function(camera:String, intensity:Float = 0.35, blurSize:Float=1.0/512.0) {
-			
-			PlayState.instance.addShaderToCamera(camera, new ShaderFilter(new BloomEffect(blurSize, intensity)));
-			
 		});
 
 		Lua_helper.add_callback(lua, "clearUnusedMemory", function() {

@@ -15,9 +15,6 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.FlxSubState;
-import openfl.filters.ShaderFilter;
-import Shaders;
-import openfl.display.Shader;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.effects.FlxTrail;
 import flixel.addons.effects.FlxTrailArea;
@@ -84,7 +81,6 @@ class PlayState extends MusicBeatState
 	public var modchartTweens:Map<String, FlxTween> = new Map<String, FlxTween>();
 	public var modchartSprites:Map<String, ModchartSprite> = new Map<String, ModchartSprite>();
 	public var modchartTimers:Map<String, FlxTimer> = new Map<String, FlxTimer>();
-	public var shader_chromatic_abberation:ChromaticAberrationEffect;
 	public var modchartSounds:Map<String, FlxSound> = new Map<String, FlxSound>();
 	public var modchartTexts:Map<String, ModchartText> = new Map<String, ModchartText>();
 	public var modchartSaves:Map<String, FlxSave> = new Map<String, FlxSave>();
@@ -190,12 +186,6 @@ class PlayState extends MusicBeatState
 	public var camGame:FlxCamera;
 	public var camOther:FlxCamera;
 	public var cameraSpeed:Float = 1;
-	
-	//shaders shit
-	public var shaderUpdates:Array<Float->Void> = [];
-	public var camGameShaders:Array<ShaderFilter> = [];
-	public var camHUDShaders:Array<ShaderFilter> = [];
-	public var camOtherShaders:Array<ShaderFilter> = [];
 
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
 	var dialogueJson:DialogueFile = null;
@@ -315,8 +305,6 @@ class PlayState extends MusicBeatState
 		instakillOnMiss = ClientPrefs.getGameplaySetting('instakill', false);
 		practiceMode = ClientPrefs.getGameplaySetting('practice', false);
 		cpuControlled = ClientPrefs.getGameplaySetting('botplay', false);
-
-    shader_chromatic_abberation = new ChromaticAberrationEffect();
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -1691,92 +1679,6 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-public function addShaderToCamera(cam:String,effect:ShaderFilter){
-    
-        switch(cam.toLowerCase()) {
-            case 'camhud' | 'hud':
-                    camHUDShaders.push(effect);
-                    var newCamEffects:Array<BitmapFilter>=[];
-                    for(i in camHUDShaders){
-                      newCamEffects.push(new ShaderFilter(i.shader));
-                    }
-                    camHUD.setFilters(newCamEffects);
-            case 'camother' | 'other':
-                    camOtherShaders.push(effect);
-                    var newCamEffects:Array<BitmapFilter>=[];
-                    for(i in camOtherShaders){
-                      newCamEffects.push(new ShaderFilter(i.shader));
-                    }
-                    camOther.setFilters(newCamEffects);
-            case 'camgame' | 'game':
-                    camGameShaders.push(effect);
-                    var newCamEffects:Array<BitmapFilter>=[]; // IT SHUTS HAXE UP LOL FUCK YOU HAXE
-                    for(i in camGameShaders){
-                      newCamEffects.push(new ShaderFilter(i.shader));
-                    }
-                    camGame.setFilters(newCamEffects);
-            default:
-                if(modchartSprites.exists(cam)) {
-                    Reflect.setProperty(modchartSprites.get(cam),"shader",effect.shader);
-                } else if(modchartTexts.exists(cam)) {
-                    Reflect.setProperty(modchartTexts.get(cam),"shader",effect.shader);
-                } else {
-                    var OBJ = Reflect.getProperty(PlayState.instance,cam);
-                    Reflect.setProperty(OBJ,"shader", effect.shader);
-                }  
-                
-        }
-      
-  }
-  
-  public function removeShaderFromCamera(cam:String,effect:ShaderFilter){ 
-      
-        switch(cam.toLowerCase()) {
-            case 'camhud' | 'hud': 
-    camHUDShaders.remove(effect);
-    var newCamEffects:Array<BitmapFilter>=[];
-    for(i in camHUDShaders){
-      newCamEffects.push(new ShaderFilter(i.shader));
-    }
-    camHUD.setFilters(newCamEffects);
-            case 'camother' | 'other': 
-                    camOtherShaders.remove(effect);
-                    var newCamEffects:Array<BitmapFilter>=[];
-                    for(i in camOtherShaders){
-                      newCamEffects.push(new ShaderFilter(i.shader));
-                    }
-                    camOther.setFilters(newCamEffects);
-            default: 
-                camGameShaders.remove(effect);
-                var newCamEffects:Array<BitmapFilter>=[];
-                for(i in camGameShaders){
-                  newCamEffects.push(new ShaderFilter(i.shader));
-                }
-                camGame.setFilters(newCamEffects);
-        }
- 
-  }
-  
-  public function clearShaderFromCamera(cam:String){
-      
-      
-        switch(cam.toLowerCase()) {
-            case 'camhud' | 'hud': 
-                camHUDShaders = [];
-                var newCamEffects:Array<BitmapFilter>=[];
-                camHUD.setFilters(newCamEffects);
-            case 'camother' | 'other': 
-                camOtherShaders = [];
-                var newCamEffects:Array<BitmapFilter>=[];
-                camOther.setFilters(newCamEffects);
-            default: 
-                camGameShaders = [];
-                var newCamEffects:Array<BitmapFilter>=[];
-                camGame.setFilters(newCamEffects);
-        }
-        
-  }
-
 	public function clearNotesBefore(time:Float)
 	{
 		var i:Int = unspawnNotes.length - 1;
@@ -2424,7 +2326,7 @@ public function addShaderToCamera(cam:String,effect:ShaderFilter){
 		if(ratingName == '?') {
 			scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Accuracy: ' + ratingName;
 		} else {
-			scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' | ' + '[' + ratingFC + ']';
+			scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' | ' + '[' + ratingFC + '] ';
 		}
 
 		if(botplayTxt.visible) {
@@ -2729,11 +2631,8 @@ public function addShaderToCamera(cam:String,effect:ShaderFilter){
 		setOnLuas('cameraY', camFollowPos.y);
 		setOnLuas('botPlay', cpuControlled);
 		callOnLuas('onUpdatePost', [elapsed]);
-		for (i in shaderUpdates){
-			i(elapsed);
 	}
-}
-	
+
 	function openChartEditor()
 	{
 		persistentUpdate = false;
