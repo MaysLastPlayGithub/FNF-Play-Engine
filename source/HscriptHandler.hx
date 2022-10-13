@@ -1,6 +1,6 @@
-package;
+/*package;
 
-//import hscript.Interp; //for now i'll not using hscript lol
+import hscript.Interp; //for now i'll not using hscript lol
 
 import PlayState;  
 import Discord;
@@ -65,4 +65,4 @@ class HscriptHandler {
         interp.variables.set('FlxBasic', FlxBasic);
         return interp;
     }
-}
+}*\
