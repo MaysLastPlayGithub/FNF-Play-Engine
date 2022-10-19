@@ -1041,8 +1041,10 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-  if(!isStoryMode)
+      if(!isStoryMode)
+   {
 		kadeEngineWatermark = new FlxText(4, healthBarBG.y + 58, 0, SONG.song + ' |' + 'Freeplay', 16);
+   }
 	else if(isStoryMode)
 		{
 		kadeEngineWatermark = new FlxText(4, healthBarBG.y + 58, 0, SONG.song + ' |' + 'Story Mode', 16);
