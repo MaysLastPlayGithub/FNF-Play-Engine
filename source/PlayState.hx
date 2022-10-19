@@ -1047,7 +1047,7 @@ class PlayState extends MusicBeatState
    }
 	else if(isStoryMode)
 		{
-		kadeEngineWatermark = new FlxText(4, healthBarBG.y + 58, 0, SONG.song + ' |' + 'Story Mode', 16);
+		kadeEngineWatermark = new FlxText(4, healthBarBG.y + 58, 0, SONG.song + ' | ' + 'Story Mode', 16);
 		}
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
