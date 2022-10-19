@@ -1043,7 +1043,7 @@ class PlayState extends MusicBeatState
 
       if(!isStoryMode)
    {
-		kadeEngineWatermark = new FlxText(4, healthBarBG.y + 58, 0, SONG.song + ' |' + 'Freeplay', 16);
+		kadeEngineWatermark = new FlxText(4, healthBarBG.y + 58, 0, SONG.song, 16);
    }
 	else if(isStoryMode)
 		{
