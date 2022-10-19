@@ -1041,7 +1041,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		kadeEngineWatermark = new FlxText(4, healthBarBG.y + 58, 0, SONG.song + ' |' + Freeplay, 16 if(isStoryMode) { + ' |' + Story Mode, 16} );
+		kadeEngineWatermark = new FlxText(4, healthBarBG.y + 58, 0, SONG.song + ' |' + 'Freeplay' if(isStoryMode) { + ' |' + 'Story Mode'}, 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
 		kadeEngineWatermark.borderSize = 1.25;
