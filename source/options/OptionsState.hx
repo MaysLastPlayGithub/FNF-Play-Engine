@@ -29,23 +29,23 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Gameplay', 'Optimization', 'Combo Offsets'];
+	var options:Array<String> = ['Preferences', 'Appearance', 'Combo Offsets'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
-			case 'Optimization':
+			case 'Appearance':
 				#if android
 				removeVirtualPad();
 				#end
-				openSubState(new options.OptimizationSubState());
-			case 'Gameplay':
+				openSubState(new options.AppearanceSubState());
+			case 'Preferences':
 				#if android
 				removeVirtualPad();
 				#end
-				openSubState(new options.GameplaySettingsSubState());
+				openSubState(new options.PreferencesSubState());
 			case 'Combo Offsets':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
 		}
