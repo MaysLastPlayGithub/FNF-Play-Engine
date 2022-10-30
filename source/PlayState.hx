@@ -888,7 +888,7 @@ class PlayState extends MusicBeatState
 
 		if(ClientPrefs.timeBarType == 'Timebar Visible')
 		{
-			timeTxt.text = SONG.song + ' [' + FlxStringUtil.formatTime(secondsTotal, false), + ']';
+			timeTxt.text = SONG.song + ' [' + storyDifficultyText + ']';
 		}
 		updateTime = showTime;
 
