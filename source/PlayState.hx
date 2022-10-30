@@ -888,7 +888,7 @@ class PlayState extends MusicBeatState
 
 		if(ClientPrefs.timeBarType == 'Timebar Visible')
 		{
-			timeTxt.text = SONG.song + ' [' + FlxStringUtil.formatTime(Math.floor((FlxG.sound.music.length - (Conductor.songPosition - ClientPrefs.noteOffset)) / 1000), false) + ']';
+			timeTxt.text = SONG.song + ' [' + ${FlxStringUtil.formatTime(secondsTotal, false)} '/' ${FlxStringUtil.formatTime(Math.floor(songLength / 1000), false)} + ']';
 		}
 		updateTime = showTime;
 
