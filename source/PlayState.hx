@@ -888,7 +888,7 @@ class PlayState extends MusicBeatState
 
 		if(ClientPrefs.timeBarType == 'Timebar Visible')
 		{
-			timeTxt.text = SONG.song + ' [' + storyDifficultyText + ']';
+			timeTxt.text = SONG.song + ' [' + CoolUtil.difficulties[storyDifficulty] + ']';
 		}
 		updateTime = showTime;
 
