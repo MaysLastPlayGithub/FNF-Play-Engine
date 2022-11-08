@@ -27,7 +27,7 @@ import Controls;
 
 using StringTools;
 
-class AppearanceSubState extends BaseOptionsMenu
+class FPSSubState extends BaseOptionsMenu
 {
 	public function new()
 	{
