@@ -29,7 +29,7 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Preferences', 'Appearance', 'Optimization', 'FPS And UI', 'Combo Offsets'];
+	var options:Array<String> = ['Preferences', 'Appearance', 'Optimization', 'Visuals', 'Combo Offsets'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -51,11 +51,11 @@ class OptionsState extends MusicBeatState
 				removeVirtualPad();
 				#end
 				openSubState(new options.OptimizationSubState());
-			case 'FPS Counter':
+			case 'Visuals':
 				#if android
 				removeVirtualPad();
 				#end
-				openSubState(new options.FPSSubState());
+				openSubState(new options.VisualsSubState());
 			case 'Combo Offsets':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
 		}
