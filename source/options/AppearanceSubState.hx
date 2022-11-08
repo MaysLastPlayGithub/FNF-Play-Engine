@@ -82,27 +82,7 @@ class AppearanceSubState extends BaseOptionsMenu
 		option.decimals = 1;
 		addOption(option);
 		
-		var option:Option = new Option('FPS Counter',
-			'If unchecked, hides FPS Counter.',
-			'showFPS',
-			'bool',
-			#if android false #else true #end);
-		addOption(option);
-		option.onChange = onChangeFPSCounter;
-		
 		#if !html5 //Apparently other framerates isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
-		var option:Option = new Option('Framerate',
-			"Pretty self explanatory, isn't it?",
-			'framerate',
-			'int',
-			60);
-		addOption(option);
-
-		option.minValue = 60;
-		option.maxValue = 240;
-		option.displayFormat = '%v FPS';
-		option.onChange = onChangeFramerate;
-		#end
 
 		var option:Option = new Option('Pause Screen Song:',
 			"What song do you prefer for the Pause Screen?",
