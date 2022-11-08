@@ -27,12 +27,12 @@ import Controls;
 
 using StringTools;
 
-class AppearanceSubState extends BaseOptionsMenu
+class VisualsSubState extends BaseOptionsMenu
 {
 	public function new()
 	{
-		title = 'FPS And UI';
-		rpcTitle = 'FPS & UI'; //for Discord Rich Presence
+		title = 'Visuals';
+		rpcTitle = 'Visuals Menu'; //for Discord Rich Presence
 
 		var option:Option = new Option('FPS Counter',
 			'If unchecked, hides FPS Counter.',
