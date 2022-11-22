@@ -95,7 +95,7 @@ class FPS extends TextField
 				memoryTotal = memoryMegas;
 
 			text += "\nMemory: " + memoryMegas + " MB";
-			text += "\nMemory: " + memoryTotal + " MB"
+			text += "\nMemory: " + memoryTotal + " MB";
 			#end
 
 			textColor = 0xFFFFFFFF;
