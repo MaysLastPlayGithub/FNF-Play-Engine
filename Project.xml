@@ -137,8 +137,12 @@
 
 	<config:android permission="android.permission.READ_EXTERNAL_STORAGE" if="android"/>
 	<config:android permission="android.permission.WRITE_EXTERNAL_STORAGE" if="android"/>
-  <config:android gradle-version="7.5.1" />
-  <config:android gradle-plugin="7.3.1" />
+        <config:android gradle-version="7.5.1" />
+        <config:android gradle-plugin="7.3.1" />
+
+        <!--Audio Recording Fix-->
+        <config:android target-sdk-version="29" if="${lime <= 8.0.0}" />
+        </section>
 
 	<!-- <haxelib name="markdown" /> -->
 	<!-- <haxelib name="HtmlParser" /> -->
@@ -177,9 +181,6 @@
 
 	<!--Enable this for Nape release builds for a serious peformance improvement-->
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
-
-        <!-- make's game use less ram -->
-        <haxedef name="HXCPP_GC_BIG_BLOCKS"/>
 
 	<!-- Akways enable Null Object Reference check -->
 	<haxedef name="HXCPP_CHECK_POINTER" if="release" />
