@@ -1,3 +1,6 @@
+# ⚠⚠ THIS ENGINE IS OUTDATED ⚠⚠
+
+**I don't wanna be affiliated with this old project of mine anymore. This Piece Of Shit is useless just another copy of Psych Engine, so there's will be new Play Engine what will be maked from 0 (base fnf source), now let this die.**
 # Friday Night Funkin' - Play Engine
 Engine Will be used on Vs MaysLastPlay mod
 engine made as a custom build of psych engine with some modification to it. as psych engine, this engine has mods support with lua too.
